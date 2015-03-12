@@ -19,8 +19,8 @@ public class GameEngine implements KeyListener, GameReporter{
 	
 	private Timer timer;
 	
-	private long score = 0;
-	private double difficulty = 0.1;
+	private long score = 1000;
+	private double difficulty = 100;
 	
 	public GameEngine(GamePanel gp, SpaceShip v) {
 		this.gp = gp;
@@ -44,7 +44,7 @@ public class GameEngine implements KeyListener, GameReporter{
 	}
 	
 	private void generateEnemy(){
-		Enemy e = new Enemy((int)(Math.random()*390), 30);
+		Enemy e = new Enemy((int)(Math.random()*5000), 30);
 		gp.sprites.add(e);
 		enemies.add(e);
 	}
@@ -62,7 +62,7 @@ public class GameEngine implements KeyListener, GameReporter{
 			if(!e.isAlive()){
 				e_iter.remove();
 				gp.sprites.remove(e);
-				score += 100;
+				score += 5000;
 			}
 		}
 		
@@ -92,7 +92,7 @@ public class GameEngine implements KeyListener, GameReporter{
 			v.move(1);
 			break;
 		case KeyEvent.VK_D:
-			difficulty += 0.1;
+			difficulty += 100;
 			break;
 		}
 	}
